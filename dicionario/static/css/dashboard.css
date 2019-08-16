@@ -1,0 +1,157 @@
+.nav-index {
+    height: 60px;
+}
+
+.nav-index-link {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.nav-index-link:hover {
+    color: #4176f1;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 1.4em;
+}
+
+body {
+    min-height: 100vh !important;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+main {
+    height: calc(100vh - 110px);
+}
+
+.text-presentation p{
+    color: var(--primary);
+    font-size: 2em;
+    font-weight: 700;
+    padding-right: 3em;
+}
+
+.text-presentation, .img-presentation{
+    max-width: 50%;
+}
+
+.text-presentation {
+    width: 44%;
+}
+
+.img-presentation {
+    width: 100%;
+    height: 100%;
+}
+
+.img-presentation img {
+    width: 60%;
+    height: auto;
+}
+
+.footer {
+    height: 50px;
+}
+
+.footer p {
+    color: #707070;
+}
+
+.sidenav, .sidenav-right {
+    transition: .5s ease-in-out;
+    background: #144dd1;
+    background-image: url('../img/sidebar-bg.png');
+    width: 250px;
+    height: 100vh;
+    z-index: 40;
+}
+
+
+.sidenav {
+    position: fixed;
+    top: 60px;
+    left: -250px;
+}
+
+.sidenav-right {    
+    position: fixed;
+    top: 60px;
+    right: -250px;
+}
+
+.sidenav-link{
+    z-index: 41;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.sidenav-link:hover {
+    color: #ffffffb2;
+    text-decoration: none;
+}
+
+.content {
+    position: fixed;
+    right: 0;
+    transition: .5s ease-in-out;
+    width: 100%;
+    background-color: #F3F3F3;
+    min-height: calc(100vh - 60px);
+}
+
+.menu {
+    display: flex;
+    cursor: pointer;
+}
+
+.menu-left {
+    display: none;
+}
+
+@media(max-width:990px) {
+    .text-presentation, .img-presentation {
+        margin: 0 !important;
+    }
+    .text-presentation {
+        width: 50%;
+    }
+    .text-presentation p {
+        padding: 0;
+    }
+}
+
+@media(max-width:770px) {
+    .menu-left {
+        display: flex;
+        cursor: pointer;
+    }
+    
+    .menu {
+        display: none;
+    }
+
+    .content {
+        left: 0;
+        width: 100%;
+    }
+
+
+    .nav-index-list {
+        display: none !important;
+    }
+
+    .text-presentation {
+        max-width: 100% !important;
+        width: 100%;
+        text-align: center;
+    }
+    .img-presentation {
+        display: none !important;
+    }
+
+    .footer p {
+        text-align: center;
+    }
+}

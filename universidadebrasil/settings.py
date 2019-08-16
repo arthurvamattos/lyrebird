@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'dicionario',
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -104,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Porto_Velho'
 
 USE_I18N = True
 
@@ -119,3 +121,25 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Auth
+LOGIN_URL = '/entrar/'
+LOGOUT_URL = '/sair/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL='/dashboard/'
+AUTH_USER_MODEL='usuarios.Usuario'
+
+# Imagens
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# E-mails
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'Universidade Brasil <email>'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'email'
+EMAIL_HOST_PASSWORD = 'senha do email'
+EMAIL_PORT = 587
+CONTACT_EMAIL = 'email'

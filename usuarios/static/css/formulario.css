@@ -1,0 +1,9 @@
+.form-content {
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: #F3F3F3;
+}
+.form-container {
+    max-width: 350px;
+    width: 100%;
+}
