@@ -22,7 +22,7 @@ body {
     overflow-x: hidden;
 }
 main {
-    height: calc(100vh - 110px);
+    min-height: calc(100vh - 110px);
 }
 
 .text-presentation p{
@@ -93,7 +93,7 @@ main {
 }
 
 .content {
-    position: fixed;
+    position: absolute;
     right: 0;
     transition: .5s ease-in-out;
     width: 100%;
@@ -109,6 +109,26 @@ main {
 .menu-left {
     display: none;
 }
+
+
+.card {
+    width: 100%;
+    max-width: 49%;
+    min-height: 300px;
+}
+
+
+.card-image {
+    width: 50%;
+    height: 100%;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 @media(max-width:990px) {
     .text-presentation, .img-presentation {
@@ -154,4 +174,13 @@ main {
     .footer p {
         text-align: center;
     }
+    
+    .card {
+        max-width: 100%;
+    }
+
+    .card :nth-child(odd) {
+        margin-left: 0;
+    }
+    
 }

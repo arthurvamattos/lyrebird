@@ -12,12 +12,12 @@
             </button>
             </div>      
             {% endif %}
-            <p class="dash-title ">Meu Perfil</p>    
-            <div class="dash-box shadow-sm p-4 bg-white rounded">
+            <div class="mt-3 shadow-sm p-4 bg-white rounded">
+                <h2 class="mb-3">Meu Perfil</h2>    
                 <form action="{% url 'perfil' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="form-div-main">
-                        <div class="form-div-left">
+                    <div>
+                        <div>
                             <fieldset>
                                 <div>                  
                                     {{ form.name.label_tag }}
@@ -29,28 +29,27 @@
                                     {{ form.email.label_tag }}
                                     {{ form.email }}               
                                     <!-- email -->
-                                </div>                    
-
+                                </div>                  
                                         
                             </div>
-                            <div class="form-div-right">
-                                <div class="form-foto">
+                            <div class="d-flex align-items-center row">
+                                <div class="d-flex flex-column mb-3 col-4">
                                     <label>Foto de Perfil</label>
-                                    <img class="profile-pic" src="{{ perfil.profile_pic.url }}" alt="Foto de perfil" width="150px" height="150px">
+                                    <img class="rounded-circle" src="{{ perfil.profile_pic.url }}" alt="Foto de perfil" width="150px" height="150px">
                                 </div>
-                                <div class="form-foto-a">
-                                    <label for="id_profile_pic">Nova foto de perfil</label>                  
-                                    <input type="file" name="profile_pic" accept="image/*" id="id_profile_pic">
+                                <div class="custom-file mb-3 col-8">
+                                    <input type="file" class="custom-file-input shadow-sm" aria-describedby="id_profile_pic" name="profile_pic" accept="image/*" id="id_profile_pic">
+                                    <label  class="custom-file-label" for="id_profile_pic">Nova foto de perfil</label>                  
                                 </div>
                             </div>
                         </fieldset>
                     </div>
-                    <div class="btn-box">
+                    <div class="d-flex align-items-center justify-content-between">
                         <div>
                             <a href="#" class="btn btn-outline-primary" data-toggle="modal" data-target="#modalSenha">Alterar Senha</a>
                         </div>
                         <div class="form-button">
-                            <button type="submit" class="nav-btn">Salvar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
                         </div>
                         
                     </div>
@@ -98,22 +97,6 @@
                 </div>
             </div>
         </div>
-        <script>    
-
-            document.querySelector('#id_name').classList.toggle('form-control')
-            document.querySelector('#id_name').placeholder = "Nome completo";
-
-            document.querySelector('#id_email').classList.toggle('form-control')
-            document.querySelector('#id_email').placeholder = "E-mail";
-            
-            document.querySelector('#id_new_password1').classList.toggle('form-control')
-            document.querySelector('#id_new_password1').placeholder = "Nova senha";
-
-            document.querySelector('#id_new_password2').classList.toggle('form-control')
-            document.querySelector('#id_new_password2').placeholder = "Confirmação de senha";
-
-            document.querySelector('#id_old_password').classList.toggle('form-control')
-            document.querySelector('#id_old_password').placeholder = "Senha antiga";
-        </script>
+        <script src="{% static 'js/perfilFormHelper.js' %}"></script>
     </div>
 {% endblock %}
