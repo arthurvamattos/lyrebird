@@ -1,5 +1,8 @@
 .nav-index {
     height: 60px;
+    position: fixed;
+    z-index: 400;
+    width: 100%;
 }
 
 .nav-index-link {
@@ -94,6 +97,7 @@ main {
 
 .content {
     position: absolute;
+    top: 60px;
     right: 0;
     transition: .5s ease-in-out;
     width: 100%;
