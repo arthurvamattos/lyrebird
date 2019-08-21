@@ -1,25 +1,44 @@
-{% extends "base_dash.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
 {% block body %}
     <main class="d-flex justify-content-beetween align-items-center container">
-        <div class="text-presentation ml-5">
-            <p>Glossário Colaborativo online de Termos Técnicos na Área de Produção Animal : Inglês - Português</p>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Pesquise o que quer encontrar" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="button-addon2">Buscar</button>
+
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <div class="text-presentation ml-5">
+                        <p class="text-primary">Glossário Colaborativo online de Termos Técnicos na Área de Produção
+                            Animal : Inglês - Português</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Pesquise o que quer encontrar"
+                                   aria-label="Recipient's username" aria-describedby="button-addon2">
+
+                            <form method="post" action="{% url 'resultados' %}">
+                                {% csrf_token %}
+                                <button class="btn btn-primary bg-primary" type="submit" id="button-addon2">Buscar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="img-fluid">
+                        <img src="{% static 'img/book-lover.svg' %}"
+                             alt="Mulher lendo livro sentada sobre uma pilha com outros livros">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="img-presentation d-flex justify-content-end align-items-center mr-5">
-            <img src="{% static 'img/book-lover.svg' %}" alt="Mulher lendo livro sentada sobre uma pilha com outros livros">
         </div>
     </main>
     <footer class="footer container">
         <p>Alguns direitos reservados</p>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
-    <script src="{% static 'js/sidebar.js' %}"></script>
-{%  endblock %}
+{% endblock %}
