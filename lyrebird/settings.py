@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'dicionario',
     'usuarios',
+    'crispy_forms'
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,8 +129,8 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/entrar/'
 LOGOUT_URL = '/sair/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL='/dashboard/'
-AUTH_USER_MODEL='usuarios.Usuario'
+LOGIN_REDIRECT_URL = '/dashboard/'
+AUTH_USER_MODEL = 'usuarios.Usuario'
 
 # Imagens
 MEDIA_URL = '/media/'

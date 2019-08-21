@@ -2,14 +2,17 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 from usuarios.utils import generate_hash_key
-from .models import PasswordReset
+# from .models import PasswordReset
 from usuarios.mail import send_mail_template
+
 
 User = get_user_model()
 
+'''
 class PasswordResetForm(forms.Form):
 
     email = forms.EmailField(label='E-mail')
+
     def clean_email(self):
         email = self.cleaned_data['email']
         if User.objects.filter(email=email).exists():
@@ -19,7 +22,7 @@ class PasswordResetForm(forms.Form):
     def save(self):
         user = User.objects.get(email=self.cleaned_data['email'])
         key = generate_hash_key(user.email)
-        reset = PassowordReset(key=key, user=user)
+        reset = PasswordReset(key=key, user=user)
         reset.save()
         template_name = 'reset_password_mail.html'
         subject = 'Criar nova senha no Eventop'
@@ -27,6 +30,7 @@ class PasswordResetForm(forms.Form):
             'reset' : reset,
         }
         send_mail_template(subject, template_name, context, [user.email])
+'''
 
 
 class RegisterForm(forms.ModelForm):
@@ -52,10 +56,11 @@ class RegisterForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'name', 'email']
+        fields = ['fullname', 'email', 'password1', 'password2',]
+
 
 class EditarPerfilForm(forms.ModelForm):
     
     class Meta:
         model = User
-        fields = ['username', 'email', 'name', 'profile_pic']
+        fields = ['email', 'fullname', 'password']

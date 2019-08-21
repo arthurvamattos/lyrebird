@@ -1,22 +1,17 @@
 {% extends 'base_usuario.html' %}
 {% load staticfiles %}
+{%  load crispy_forms_filters %}
 {% block body %}
 <div class="form-content d-flex justify-content-center align-items-center">
     <form  method="POST" role="form" class="form-container p-4 bg-white rounded shadow-sm">
         {% csrf_token %}    
         <div class="mb-4">
             <h1 class="text-dark font-weight-normal">Login</h1>
-            <p class="text-secondary">Por favor realize o login para liberar o acesso administrativo</p>
+            <p class="text-secondary">Por favor realize o login para que possa sugerir termos.</p>
         </div>
         
         <fieldset>
-            {% for field in form %}
-            <div>
-                {{ field.label }}
-                {{ field }}
-                {{ field.errors }}
-            </div>
-            {% endfor %}
+            {{ form|crispy }}
         </fieldset>
         
         <button class="btn btn-lg btn-primary btn-block mb-2" type="submit" value="Entrar">Entrar</button>
@@ -49,8 +44,7 @@
         {% endif%}
 
         <div class="d-flex justify-content-between">
-            <a href="{% url 'passwordReset' %}">Esqueceu sua senha?</a>
-            <a href="{% url 'registrar' %}">Registre-se</a>
+              <a href="{% url 'registrar' %}">Registre-se</a>
         </div>
     </form>
 </div>
