@@ -10,11 +10,9 @@
                         <p class="text-primary">Glossário Colaborativo online de Termos Técnicos na Área de Produção
                             Animal : Inglês - Português</p>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Pesquise o que quer encontrar"
-                                   aria-label="Recipient's username" aria-describedby="button-addon2">
-
-                            <form method="post" action="{% url 'resultados' %}">
-                                {% csrf_token %}
+                            <form method="get" action="{% url 'resultados' %}">
+                                <input type="text" class="form-control" placeholder="Pesquise o que quer encontrar"
+                                   aria-label="Recipient's username" aria-describedby="button-addon2"  name="q">
                                 <button class="btn btn-primary bg-primary" type="submit" id="button-addon2">Buscar
                                 </button>
                             </form>
