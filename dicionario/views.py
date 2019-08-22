@@ -21,7 +21,7 @@ class ResultsView(ListView):
         new_context = {}
         try:
             new_context = Termo.objects.filter(
-                Q(termo__icontains=query) | Q(expressao__icontains=query)
+                Q(termo__icontains=query) | Q(expressao__icontains=query), aprovado=True
             )
         except Termo.DoesNotExist:
             new_context = {}
@@ -35,14 +35,11 @@ def resultados(request):
 
 
 def solicitacao_inclusao(request):
-    print('SOLICITACAO INCLUSAO 1')
     context = {}
     form = TermoForm()
     if request.method == "POST":
-        print('SOLICITACAO INCLUSAO 2')
         form = TermoForm(request.POST, request.FILES)
         if form.is_valid():
-            print('SOLICITACAO INCLUSAO 3')
             termo = form.save(commit=False)
             termo.aprovado = False
             termo.save()
@@ -53,9 +50,6 @@ def solicitacao_inclusao(request):
             context['saved'] = True
             context['form'] = TermoForm()
             return render(request, 'pedido_inclusao.html', context)
-
-    else:
-        print('SOLICITACAO INCLUSAO 4')
 
     context['form'] = form
     return render(request, 'pedido_inclusao.html', context)
