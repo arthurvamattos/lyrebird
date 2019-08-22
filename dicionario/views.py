@@ -12,7 +12,7 @@ def index(request):
 
 class ResultsView(ListView):
     model = Termo
-    paginated_by = 20
+    paginate_by = 2
     template_name = "resultados.html"
 
     def get_queryset(self):
