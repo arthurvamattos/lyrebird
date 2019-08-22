@@ -5,6 +5,10 @@ from .models import SubArea
 from .models import Sugestao
 
 
+class SugestaoInline(admin.TabularInline):
+    model = Sugestao
+
+
 # Register your models here.
 class TermoAdmin(admin.ModelAdmin):
     list_display = ('termo', 'subarea', 'expressao', 'aprovado')
@@ -17,7 +21,7 @@ class SubAreaAdmin(admin.ModelAdmin):
 
 
 class SugestaoAdmin(admin.ModelAdmin):
-    list_display = ('termo', 'usuario', 'timestamp')
+    list_display = ('termo', 'usuario', 'timestamp', )
 
 
 admin.site.register(Termo, TermoAdmin)

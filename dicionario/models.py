@@ -43,7 +43,7 @@ class Termo(models.Model):
 
 
 class Sugestao(models.Model):
-    termo = models.ForeignKey(Termo, on_delete=models.CASCADE)
+    termo = models.OneToOneField(Termo, on_delete=models.CASCADE)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE) #o usuário que sugeriu o termo
     timestamp = models.DateTimeField(auto_now_add=True)
 
