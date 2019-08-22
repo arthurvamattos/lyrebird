@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.db.models import Q
-from .models import Termo
+from .models import Termo, Sugestao
+from .forms import TermoForm
 
 
 def index(request):
@@ -33,6 +34,28 @@ def resultados(request):
     return render(request, 'resultados.html', context)
 
 
-def pedido_inclusao(request):
+def solicitacao_inclusao(request):
+    print('SOLICITACAO INCLUSAO 1')
     context = {}
+    form = TermoForm()
+    if request.method == "POST":
+        print('SOLICITACAO INCLUSAO 2')
+        form = TermoForm(request.POST, request.FILES)
+        if form.is_valid():
+            print('SOLICITACAO INCLUSAO 3')
+            termo = form.save(commit=False)
+            termo.aprovado = False
+            termo.save()
+            sugestao = Sugestao()
+            sugestao.usuario = request.user
+            sugestao.termo = termo
+            sugestao.save()
+            context['saved'] = True
+            context['form'] = TermoForm()
+            return render(request, 'pedido_inclusao.html', context)
+
+    else:
+        print('SOLICITACAO INCLUSAO 4')
+
+    context['form'] = form
     return render(request, 'pedido_inclusao.html', context)

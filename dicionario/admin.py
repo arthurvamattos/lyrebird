@@ -5,7 +5,21 @@ from .models import SubArea
 from .models import Sugestao
 
 # Register your models here.
-admin.site.register(Termo)
+
+
+class TermoAdmin(admin.ModelAdmin):
+    list_display = ('termo', 'subarea', 'expressao', 'aprovado')
+
+
+class SubAreaAdmin(admin.ModelAdmin):
+    list_display = ('subarea', 'area')
+
+
+class SugestaoAdmin(admin.ModelAdmin):
+    list_display = ('termo', 'usuario', 'timestamp')
+
+
+admin.site.register(Termo, TermoAdmin)
 admin.site.register(Area)
-admin.site.register(SubArea)
-admin.site.register(Sugestao)
+admin.site.register(SubArea, SubAreaAdmin)
+admin.site.register(Sugestao, SugestaoAdmin)

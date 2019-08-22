@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.shortcuts import redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, SetPasswordForm
 from django.conf import settings
-# from .forms import RegisterForm, EditarPerfilForm, PasswordResetForm
 from .forms import RegisterForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
@@ -52,7 +51,7 @@ def passwordResetConfirm(request, key):
     context['form'] = form
     return render(request, 'password_reset_confirm.html', context)
 '''
-
+'''
 @login_required
 def exibir_perfil(request): 
     context = {}
@@ -76,3 +75,4 @@ def exibir_perfil(request):
     context['form'] = form
     context['formPass'] = formPass
     return render(request, 'perfil.html', context)
+'''

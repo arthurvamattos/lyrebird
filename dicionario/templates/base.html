@@ -29,12 +29,16 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'pedido_inclusao' %}">Solicitação de Inclusão</a>
+                    <a class="nav-link" href="{% url 'solicita_inclusao' %}">Solicitação de Inclusão</a>
                 </li>
 
                 {%  if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'sair' %}">Sair</a>
+                        <a class="nav-link" href="{% url 'sair' %}">Sair ({{ user }})</a>
+                    </li>
+                {%  else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'entrar' %}">Entrar</a>
                     </li>
                 {% endif %}
 

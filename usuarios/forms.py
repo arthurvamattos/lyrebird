@@ -56,7 +56,7 @@ class RegisterForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['fullname', 'email', 'password1', 'password2',]
+        fields = ['fullname', 'email', 'password1', 'password2', ]
 
 
 class EditarPerfilForm(forms.ModelForm):

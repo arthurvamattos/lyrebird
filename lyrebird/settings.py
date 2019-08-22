@@ -129,7 +129,7 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/entrar/'
 LOGOUT_URL = '/sair/'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/dashboard/'
+LOGIN_REDIRECT_URL = '/'
 AUTH_USER_MODEL = 'usuarios.Usuario'
 
 # Imagens
